@@ -10,12 +10,10 @@ def getFilesFromS3 (bucketname):
       Bucket = bucketname
       )
 
-
-   counter = 0
+   answer_array = []
    for item in response_list["Contents"]:
 
-      key = response_list["Contents"][counter]['Key']
-      
+      key = item['Key']
       response_content = s3client.get_object(
          Bucket = bucketname,
          Key = key
@@ -29,7 +27,9 @@ def getFilesFromS3 (bucketname):
       #message = 'Number of words in text file {} is {}'.format(key, numberOfWords)
       #print(message)
 
-      answer_array = [counter, "\"key\" :", key, "\"words\":", numberOfWords ]
-      print(answer_array)
-      counter +=1
- #     return answer_array 
+      answer_object = {"key" : key, "words" : numberOfWords}
+      answer_array.append(answer_object)
+     
+   print("-----------")
+   print(answer_array)
+   return answer_array 

@@ -1,4 +1,5 @@
 import json
+import getFilesFromS3Util
 import os
 
 from flask import Flask, Blueprint
@@ -10,22 +11,22 @@ def user(user):
     return json.dumps({"name": user})
 
     
-@api_bp.route('/buckets')
-def buckets():
-    return json.dumps([{"name": "bucket1"}])
+#@api_bp.route('/buckets')
+#def buckets():
+#    return json.dumps([{"name": "bucket1"}])
 
 #It's me from here
 # my excercise:
 @api_bp.route('/s3/<bucketname>')
 def bucketname(bucketname):
     
-    
-    return json.dumps([
-        {"key": "file.txt", 
-        "words": 72},
-        {"key": "readme.md", 
-        "words": 800}
-        ])
+    answer = getFilesFromS3Util.getFilesFromS3(bucketname)
+    return json.dumps(answer)
+    #    {"key": "file.txt", 
+    #    "words": 72},
+    #    {"key": "readme.md", 
+    #    "words": 800}
+    #    ])
 
 
 def create_app(test_config=None):
