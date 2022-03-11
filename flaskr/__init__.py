@@ -16,8 +16,10 @@ def buckets():
 
 #It's me from here
 # my excercise:
-@api_bp.route('/s3/bucketname')
-def buckets(bucketname):
+@api_bp.route('/s3/<bucketname>')
+def bucketname(bucketname):
+    
+    
     return json.dumps([
         {"key": "file.txt", 
         "words": 72},
