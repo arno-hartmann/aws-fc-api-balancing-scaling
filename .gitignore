@@ -1,4 +1,5 @@
 .gitignore
+__pycache__
 /flaskr/__pycache__
 /venv/
 amzdata.md
