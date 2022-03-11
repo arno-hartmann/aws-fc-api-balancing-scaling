@@ -6,6 +6,7 @@ yum install -y python
 yum install -y pip
 pip3 install flask
 
+
 mkdir fridaychallenge
 
 cd fridaychallenge
@@ -26,4 +27,5 @@ mkdir flaskr
 
 export FLASK_APP=flaskr
 export FLASK_ENV=development
-flask run --host=0.0.0.0 --port=80
+# flask run --host=0.0.0.0 --port=80
+flask run --host=0.0.0.0
