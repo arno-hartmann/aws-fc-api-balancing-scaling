@@ -32,4 +32,4 @@ def getFilesFromS3 (bucketname):
       answer_array = [counter, "\"key\" :", key, "\"words\":", numberOfWords ]
       print(answer_array)
       counter +=1
-      return answer_array
+ #     return answer_array 
