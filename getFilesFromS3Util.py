@@ -3,7 +3,7 @@ import json
 import os
 
 
-def getFilesFromS3 (bucketname):
+def getFilesFromS3(bucketname):
    s3client = boto3.client('s3')
 
    response_list = s3client.list_objects(
